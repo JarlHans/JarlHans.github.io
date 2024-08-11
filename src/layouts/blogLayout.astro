@@ -1,0 +1,48 @@
+---
+import Layout from "./Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title="Blog Anofleles de Colombia">
+  <header class="h-[82vh] text-[#323341]">
+    <div class="flex py-3 px-20 items-center top-0 w-full justify-between">
+      <Navbar />
+    </div>
+
+    <div
+      class="flex flex-col items-center absolute text-center text-6xl font-bold my-16 px-20 w-full"
+    >
+      <h1>{frontmatter.title}</h1>
+      <img class="mt-6 w-[503px]" src="Line.svg" alt="" />
+      <h3 class="text-lg">{frontmatter.pubDate}</h3>
+      <div>
+        <!-- Aquí se renderiza la imagen del frontmatter -->
+        {
+          frontmatter.heroImage ? (
+            <img
+              class="m-6 border-8 border-[#323341] bg-white"
+              src={frontmatter.heroImage}
+              alt="Imagen del artículo"
+              class="w-full h-auto"
+            />
+          ) : (
+            <p>No hay imagen disponible.</p>
+          )
+        }
+      </div>
+    </div>
+  </header>
+  <section class="flex justify-center w-full">
+    <div
+      class="text-xl w-2/3 bg-white p-10 [&>ul]:list-disc [&>ul]:list-inside [&>ol]:list-decimal [&>ol]:list-inside [&>h2]:text-center [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-[#323341] [&>h2]:mx-28 [&>p>a]:text-sky-700"
+    >
+      <slot />
+    </div>
+  </section>
+
+  <section>
+    <Footer />
+  </section>
+</Layout>

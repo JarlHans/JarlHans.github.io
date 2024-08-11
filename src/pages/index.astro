@@ -1,36 +1,91 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Card from "../components/Card.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Anopheles de Colombia">
   <main>
-    <header class="flex py-3 px-6 items-center top-0 w-full justify-between">
-      <div class="flex flex-grow basis-0">
-        <a href="/"
-          ><img
-            class="w-40"
-            src="Logo.svg"
-            alt="Logo Freddy Ruiz, Biologo, PHD"
-          /></a
-        >
+    <header class="h-[90vh] text-[#323341]">
+      <div class="flex py-3 px-20 items-center top-0 w-full justify-between">
+        <Navbar />
       </div>
 
-      <nav>
-        <ul
-          class="flex text-sm [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 font-medium"
+      <div class="absolute top-0 right-0">
+        <svg
+          width="660"
+          height="694"
+          viewBox="0 0 660 694"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/">Blog</a></li>
-          <li><a href="/">Contacto</a></li>
-        </ul>
-      </nav>
+          <circle cx="457" cy="237" r="402" stroke="#323341" stroke-width="110"
+          ></circle>
+        </svg>
+      </div>
 
-      <nav class="flex flex-grow basis-0 justify-end">
-        <a
-          href="https://www.linkedin.com/in/john-freddy-ruiz-lopez-phd-096a1716a/"
-          target="_blank"><img src="socialLink.svg" alt="Linkedin Freddy" /></a
-        >
-      </nav>
+      <div class="absolute top-1/3 text-8xl font-bold px-20">
+        <h1><span class="italic">Anopheles</span><br /> de Colombia</h1>
+        <img class="my-2 w-5/12" src="Line.svg" alt="" />
+        <p class="text-lg font-bold w-9/12">
+          Anopheles es un género de mosquitos conocido por ser el principal
+          vector de la malaria, una enfermedad que afecta a millones de personas
+          en todo el mundo.
+        </p>
+      </div>
     </header>
+
+    <section class="text-[#323341]">
+      <div class="flex justify-center">
+        <img src="Line2.svg" alt="" />
+        <h2 class="text-4xl font-bold mx-4">Entomología médica</h2>
+        <img class="rotate-180" src="Line2.svg" alt="" />
+      </div>
+
+      <p class="m-auto my-6 text-center w-[708px] text-lg font-bold">
+        Se presenta un listado actualizado de las especies de Anopheles
+        presentes en Colombia, basado en información publicada en revistas
+        científicas, libros y las dos principales paginas de web, donde están
+        recopilados los listados de los mosquitos del mundo:
+      </p>
+
+      <ul class="text-center text-lg font-bold">
+        <li>
+          <a href="http://mosquito-taxonomic-inventory.info/" target="_blank"
+            >- http://mosquito-taxonomic-inventory.info/</a
+          >
+        </li>
+        <li>
+          <a href="http://www.mosquitocatalog.org/" target="_blank"
+            >- http://www.mosquitocatalog.org/</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section id="blog" class="flex justify-center my-10 mx-20">
+      <Card
+        href="/post1"
+        title="Listado de Anopheles de Colombia"
+        body="Los mosquitos Anopheles spp. pertenecen la orden Dipterea, familia Culicidae, subfamilia Anophelinae, esta subfamilia incluye tres..."
+        heroImage="Article01.jpg"
+      />
+      <Card
+        href="post2"
+        title="Vectores de malaria en Colombia"
+        body="Basados en evidencia epidemiológica y en el aislamiento de Plasmodium vivax y P. faliciparum en Anopheles spp., en Colombia existen tres..."
+        heroImage="Article02.jpg"
+      />
+      <Card
+        href="post3"
+        title="Complejos de especies de Anopheles presentes en Colombia"
+        body="1. Anopheles apicimacula Localidad tipo: Livingston, Guatemala. Distribución: Belice, Colombia, Costa Rica, Ecuador, El Salvador, Guyana..."
+        heroImage="Article03.jpg"
+      />
+    </section>
+    <section>
+      <Footer />
+    </section>
   </main>
 </Layout>
