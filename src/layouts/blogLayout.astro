@@ -41,13 +41,14 @@ const { frontmatter } = Astro.props;
         class="flex flex-col items-center absolute text-center text-6xl font-bold my-16 px-20 w-full"
       >
         <h1>{frontmatter.title}</h1>
-        <img class="mt-6 w-[503px]" src="/Line.svg" alt="" />
+        <img class="my-3 w-48" src="/Line.svg" alt="" />
         <h3 class="text-lg">{frontmatter.pubDate}</h3>
-        <div>
+        <div class="flex justify-center">
           <!-- Aquí se renderiza la imagen del frontmatter -->
           {
             frontmatter.heroImage ? (
               <img
+                id="imagen"
                 class="m-0 border-8 border-[#323341] bg-white"
                 src={frontmatter.heroImage}
                 alt="Imagen del artículo"
@@ -79,5 +80,11 @@ const { frontmatter } = Astro.props;
     font-family: "Titillium Web", sans-serif;
     background-image: url("/wavy-dots-BG.png");
     background-size: 16%;
+  }
+
+  @media (max-width: 1513px) {
+    #imagen {
+      width: 80%;
+    }
   }
 </style>
