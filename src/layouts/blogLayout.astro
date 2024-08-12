@@ -6,68 +6,109 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title="Blog Anofleles de Colombia">
-  <header class="h-[82vh] text-[#323341]">
-    <div class="flex py-3 px-20 items-center top-0 w-full justify-between">
-      <div class="flex flex-grow basis-0">
-        <a href="/"
-          ><img
-            class="w-40"
-            src="Logo.svg"
-            alt="Logo Freddy Ruiz, Biologo, PHD"
-          /></a
-        >
+  <html>
+    <header class="h-[82vh] text-[#323341]">
+      <div class="flex py-3 px-20 items-center top-0 w-full justify-between">
+        <div class="flex flex-grow basis-0">
+          <a href="/"
+            ><img
+              class="w-40"
+              src="Logo.svg"
+              alt="Logo Freddy Ruiz, Biologo, PHD"
+            /></a
+          >
+        </div>
+
+        <nav>
+          <ul
+            class="flex text-lg [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 font-bold"
+          >
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/#blog">Blog</a></li>
+            <li><a href="/">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <nav class="flex flex-grow basis-0 justify-end z-10">
+          <a
+            href="https://www.linkedin.com/in/john-freddy-ruiz-lopez-phd-096a1716a/"
+            target="_blank"
+            ><img src="socialLink.svg" alt="Linkedin Freddy" /></a
+          >
+        </nav>
       </div>
 
-      <nav>
-        <ul
-          class="flex text-lg [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 font-bold"
-        >
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/#blog">Blog</a></li>
-          <li><a href="/">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <nav class="flex flex-grow basis-0 justify-end z-10">
-        <a
-          href="https://www.linkedin.com/in/john-freddy-ruiz-lopez-phd-096a1716a/"
-          target="_blank"><img src="socialLink.svg" alt="Linkedin Freddy" /></a
-        >
-      </nav>
-    </div>
-
-    <div
-      class="flex flex-col items-center absolute text-center text-6xl font-bold my-16 px-20 w-full"
-    >
-      <h1>{frontmatter.title}</h1>
-      <img class="mt-6 w-[503px]" src="Line.svg" alt="" />
-      <h3 class="text-lg">{frontmatter.pubDate}</h3>
-      <div>
-        <!-- Aquí se renderiza la imagen del frontmatter -->
-        {
-          frontmatter.heroImage ? (
-            <img
-              class="m-6 border-8 border-[#323341] bg-white"
-              src={frontmatter.heroImage}
-              alt="Imagen del artículo"
-              class="w-full h-auto"
-            />
-          ) : (
-            <p>No hay imagen disponible.</p>
-          )
-        }
+      <div
+        class="flex flex-col items-center absolute text-center text-6xl font-bold my-16 px-20 w-full"
+      >
+        <h1>{frontmatter.title}</h1>
+        <img class="mt-6 w-[503px]" src="Line.svg" alt="" />
+        <h3 class="text-lg">{frontmatter.pubDate}</h3>
+        <div>
+          <!-- Aquí se renderiza la imagen del frontmatter -->
+          {
+            frontmatter.heroImage ? (
+              <img
+                class="m-6 border-8 border-[#323341] bg-white"
+                src={frontmatter.heroImage}
+                alt="Imagen del artículo"
+                class="w-full h-auto"
+              />
+            ) : (
+              <p>No hay imagen disponible.</p>
+            )
+          }
+        </div>
       </div>
-    </div>
-  </header>
-  <section class="flex justify-center w-full">
-    <div
-      class="text-xl w-2/3 bg-white p-10 [&>ul]:list-disc [&>ul]:list-inside [&>ol]:list-decimal [&>ol]:list-inside [&>h2]:text-center [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-[#323341] [&>h2]:mx-28 [&>p>a]:text-sky-700"
-    >
-      <slot />
-    </div>
-  </section>
+    </header>
+    <section class="flex justify-center w-full">
+      <div
+        class="text-xl w-2/3 bg-white p-10 [&>ul]:list-disc [&>ul]:list-inside [&>ol]:list-decimal [&>ol]:list-inside [&>h2]:text-center [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-[#323341] [&>h2]:mx-28 [&>p>a]:text-sky-700"
+      >
+        <slot />
+      </div>
+    </section>
 
-  <section>
-    <Footer />
-  </section>
+    <section>
+      <Footer />
+    </section>
+  </html>
 </Layout>
+
+<style is:global>
+  @font-face {
+    font-family: "Titillium Web";
+    src: url("/fonts/TitilliumWeb-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+  }
+
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: "Titillium Web", sans-serif;
+    background-image: url("wavy-dots-BG.png");
+    background-size: 16%;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+</style>
