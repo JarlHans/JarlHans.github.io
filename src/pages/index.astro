@@ -12,7 +12,7 @@ import Footer from "../components/Footer.astro";
         <Navbar />
       </div>
 
-      <div class="absolute top-0 right-0">
+      <div id="Circle" class="absolute top-0 right-0">
         <svg
           width="660"
           height="694"
@@ -25,7 +25,7 @@ import Footer from "../components/Footer.astro";
         </svg>
       </div>
 
-      <div class="absolute top-1/3 text-8xl font-bold px-20">
+      <div id="Text-Hero" class="absolute top-1/3 text-8xl font-bold px-20">
         <h1><span class="italic">Anopheles</span><br /> de Colombia</h1>
         <img class="my-2 w-5/12" src="Line.svg" alt="" />
         <p class="text-lg font-bold w-9/12">
@@ -89,3 +89,14 @@ import Footer from "../components/Footer.astro";
     </section>
   </main>
 </Layout>
+<style>
+  @media (max-width: 1513px) {
+    #Circle {
+      margin-right: -130px;
+    }
+
+    #Text-Hero {
+      width: 80%;
+    }
+  }
+</style>
